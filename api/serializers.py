@@ -9,6 +9,8 @@ class RecipesSerializer(serializers.ModelSerializer):
 
 
 class RecommendedSerializer(serializers.ModelSerializer):
+    recipe = RecipesSerializer()
+
     class Meta:
         model = RecommendedRecipe
         fields = '__all__'

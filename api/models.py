@@ -20,7 +20,7 @@ class Recipe(models.Model):
 
 
 class RecommendedRecipe(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, null=False, blank=False)
+    recipe = models.OneToOneField(Recipe, on_delete=models.CASCADE, null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

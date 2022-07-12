@@ -26,3 +26,14 @@ def get_recipes(request):
             "recipes": serializer.data
         }
     )
+
+
+@api_view(['GET'])
+def get_recommended_recipe(request):
+    recommended = RecommendedRecipe.objects.all()
+    serializer = RecommendedSerializer(recommended, many=True)
+
+    return Response({
+        "total_recipe": recommended.count(),
+        "recommended": serializer.data
+    })
